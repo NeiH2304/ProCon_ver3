@@ -145,7 +145,7 @@ class Agent():
         self.critic_optimizer.step()
     
         # ---------------------- optimize actor ----------------------[]
-        loss_actor = -1*torch.sum(self.critic.forward(s, pre_acts))
+        loss_actor = -1*torch.mean(self.critic.forward(s, pre_acts))
         self.actor_optimizer.zero_grad()
         loss_actor.backward()
         self.actor_optimizer.step()
